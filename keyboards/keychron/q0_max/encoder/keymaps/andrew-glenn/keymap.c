@@ -28,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LSG(KC_A), KC_NO,               KC_NO,            KC_NO, LSFT(KC_F12),
         LGUI(KC_Y), KC_NO,              KC_NO,            LSG(KC_H), LSFT(KC_F11),
         LSG(KC_SPACE), KC_NO,               KC_NO,            KC_NO,
-        KC_NO, KC_NO,               KC_NO,            KC_NO, KC_KP_ENTER,
+        LGUI(KC_L), KC_NO,               KC_NO,            KC_NO, KC_KP_ENTER,
         TO(NUMPAD), KC_NO,          KC_NO          ),    
     [NUMPAD] = LAYOUT_tenkey_27(
         KC_MUTE,            KC_ESC, KC_DEL, KC_TAB, KC_BSPC,
@@ -108,6 +108,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
   switch (keycode) {
     case KC_MUTE:
         return tap_hold(record, LSG(KC_SPACE), KC_MUTE); 
+    case LSG(KC_A):
+        return tap_hold(record, LSG(KC_A),    LSG(KC_V)); 
   }
   return true; 
 }
